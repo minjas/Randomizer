@@ -1,0 +1,45 @@
+{
+  "name": "random-generator-ts",
+  "version": "1.0.0",
+  "description": "Weight and standard random functions",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "tsc",
+    "test": "jest"
+  },
+  "files": [
+    "lib"
+  ],
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/src/.*\\.spec\\.ts$"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minjas/random-generator.git"
+  },
+  "keywords": [
+    "weight",
+    "randomization"
+  ],
+  "author": "Minja Siljegovic (msiljegovic@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/minjas/random-generator/issues"
+  },
+  "homepage": "https://github.com/minjas/random-generator#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.6",
+    "jest": "^24.1.0",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.3333"
+  }
+}
