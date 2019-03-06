@@ -1,7 +1,7 @@
 {
-  "name": "random-generator-ts",
-  "version": "1.0.0",
-  "description": "Weight and standard random functions",
+  "name": "randomizer-fair-die",
+  "version": "1.0.1",
+  "description": "Fair die algorithm implementation",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "scripts": {
@@ -24,18 +24,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/minjas/random-generator.git"
+    "url": "git@github.com:minjas/Randomizer.git"
   },
   "keywords": [
-    "weight",
+    "fair die",
     "randomization"
   ],
   "author": "Minja Siljegovic (msiljegovic@gmail.com)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/minjas/random-generator/issues"
+    "url": "https://github.com/minjas/Randomizer/issues"
   },
-  "homepage": "https://github.com/minjas/random-generator#readme",
+  "homepage": "https://github.com/minjas/Randomizer#readme",
   "devDependencies": {
     "@types/jest": "^24.0.6",
     "jest": "^24.1.0",
