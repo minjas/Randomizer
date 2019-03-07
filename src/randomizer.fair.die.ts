@@ -1,7 +1,7 @@
 export default class RandomizerFairDie {
     aliases: Alias[] = [];
 
-    initialize(weights: number[]) {
+    private initialize(weights: number[]) {
       const weightsLength = weights.length;
       const weightsSum = weights.reduce((x, y) => x + y, 0)
       const average = weightsSum / weightsLength;
@@ -42,7 +42,8 @@ export default class RandomizerFairDie {
       }
     };
 
-    getSequence(weights: number[], sequenceLength: number){
+    getSequence(objectWeights: WeightObject[], sequenceLength: number){
+        let weights = objectWeights.map(x => x.weight);
         this.initialize(weights);
         const length = weights.length;
 
@@ -50,25 +51,34 @@ export default class RandomizerFairDie {
         for (let i = 0; i < sequenceLength; i++)
         {
             var r = (Math.random()) * length;
-            var index = Math.floor(r);
+            var aliasIndex = Math.floor(r);
 
-            var alias = this.aliases[index];
+            var alias = this.aliases[aliasIndex];
 
-            if (r - index > alias.key)
-            {
-                result.push(alias.value);
-            }
-            else
-            {
-                result.push(index);
-            }
+            let index: number | null = (r - aliasIndex > alias.key) ? alias.value : aliasIndex;
+            
+            const weightValuesArray = objectWeights[index as number].objects;
+
+            if(weightValuesArray.length !== 0) {
+                const value = this.getRandomElement(weightValuesArray);
+                result.push(value);
+            }  
         }
 
         return result;
+    }
+
+    private getRandomElement(array: any[]) {
+        return array[Math.floor(Math.random() * array.length)];
     }
 }
 
 interface Alias {
     key: number;
     value: number | null;
+}
+
+interface WeightObject {
+    weight: number;
+    objects: any[];
 }
