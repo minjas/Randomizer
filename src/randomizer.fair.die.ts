@@ -1,13 +1,14 @@
-export default class Randomizer {
-    initializeAliases(weights: number[]) {
+export default class RandomizerFairDie {
+    aliases: Alias[] = [];
+
+    initialize(weights: number[]) {
       const weightsLength = weights.length;
       const weightsSum = weights.reduce((x, y) => x + y, 0)
       const average = weightsSum / weightsLength;
 
       let smalls = new Map<number, number>();
       let bigs = new Map<number, number>();
-      let aliases: Alias[] = [];
-
+      
       for (var _i = 0; _i < weightsLength; _i++) {
           if(weights[_i] < average) {
             smalls.set(_i, weights[_i] / average);
@@ -17,14 +18,14 @@ export default class Randomizer {
             bigs.set(_i, weights[_i] / average);
           }
 
-          aliases.push({ key: 1, value: null} as Alias)
+          this.aliases.push({ key: 1, value: null} as Alias)
       }
 
       let small = smalls.entries().next();
       let big = bigs.entries().next();
 
       while (small.value && big.value) {
-          aliases[small.value[0]] = { key: small.value[1], value: big.value[0] } as Alias;
+          this.aliases[small.value[0]] = { key: small.value[1], value: big.value[0] } as Alias;
           big = (new Map<number, number>([[big.value[0], big.value[1] - (1 - small.value[1])]])).entries().next();
 
           if (big.value[1] < 1)
@@ -39,12 +40,10 @@ export default class Randomizer {
               small = smalls.entries().next();
           }
       }
-
-      return aliases;
     };
 
-    getByWeights(weights: number[], sequenceLength: number){
-        const aliases = this.initializeAliases(weights);
+    getSequence(weights: number[], sequenceLength: number){
+        this.initialize(weights);
         const length = weights.length;
 
         let result: (number | null)[] = [];
@@ -53,7 +52,7 @@ export default class Randomizer {
             var r = (Math.random()) * length;
             var index = Math.floor(r);
 
-            var alias = aliases[index];
+            var alias = this.aliases[index];
 
             if (r - index > alias.key)
             {
