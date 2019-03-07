@@ -43,7 +43,7 @@ export default class RandomizerFairDie {
     };
 
     getSequence(objectWeights: WeightObject[], sequenceLength: number){
-        let weights = objectWeights.map(x => x.weight);
+        let weights = objectWeights.filter(x => x.objects.length > 0).map(x => x.weight);
         this.initialize(weights);
         const length = weights.length;
 
@@ -56,7 +56,7 @@ export default class RandomizerFairDie {
             var alias = this.aliases[aliasIndex];
 
             let index: number | null = (r - aliasIndex > alias.key) ? alias.value : aliasIndex;
-            
+
             const weightValuesArray = objectWeights[index as number].objects;
 
             if(weightValuesArray.length !== 0) {
