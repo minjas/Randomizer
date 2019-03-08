@@ -1,4 +1,4 @@
-export default class RandomizerFairDie {
+export default class WeightRandomizer {
     aliases: Alias[] = [];
 
     private initialize(weights: number[]) {

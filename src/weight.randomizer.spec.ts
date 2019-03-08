@@ -1,10 +1,10 @@
-import RandomizerFairDie from "./randomizer.fair.die";
+import WeightRandomizer from "./weight.randomizer";
 
-describe("randomization", () => {
-  it("get by provided weight sequence", () => {
-    let randomizer =  new RandomizerFairDie();
+describe("weight randomization", () => {
+  it("result sequence count must be equal to input sequence count", () => {
+    let randomizer =  new WeightRandomizer();
     
-    const sequenceCount = 1000;
+    const sequenceLength = 1000;
     const sequence = randomizer.getSequence([ { weight: 9.7, objects: [{ type: 'google', album: 'barcelona 2010', mediaId: 2 },
                                                                        { type: 'google', album: 'barcelona 2010', mediaId: 4 },
                                                                        { type: 'google', album: 'barcelona 2010', mediaId: 3 },
@@ -39,6 +39,6 @@ describe("randomization", () => {
                                                                       { type: 'google', album: 'easter highlights', mediaId: 834 },
                                                                       { type: 'google', album: 'easter highlights', mediaId: 124343 },
                                                                       { type: 'google', album: 'easter highlights', mediaId: 56676 }] }], sequenceCount);    
-    expect(sequence.length).toEqual(sequenceCount);
+    expect(sequence.length).toEqual(sequenceLength);
   });
 });
