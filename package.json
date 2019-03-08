@@ -1,6 +1,6 @@
 {
   "name": "weight-randomizer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create random array sequence based on group weight. Implementation is based on fair die algorithm http://www.keithschwarz.com/darts-dice-coins/",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
@@ -27,8 +27,9 @@
     "url": "git@github.com:minjas/Randomizer.git"
   },
   "keywords": [
-    "fair die",
-    "randomization"
+    "weight",
+    "randomization",
+    "fair die algorithm"
   ],
   "author": "Minja Siljegovic (msiljegovic@gmail.com)",
   "license": "ISC",
