@@ -47,7 +47,7 @@ export default class WeightRandomizer {
         this.initialize(weights);
         const length = weights.length;
 
-        let result: (number | null)[] = [];
+        let result: (any | null)[] = [];
         for (let i = 0; i < sequenceLength; i++)
         {
             var r = (Math.random()) * length;
