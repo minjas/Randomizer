@@ -1,6 +1,6 @@
 {
   "name": "weight-randomizer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create random array sequence based on group weight. Implementation is based on fair die algorithm http://www.keithschwarz.com/darts-dice-coins/",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
