@@ -43,6 +43,10 @@ export default class WeightRandomizer {
     };
 
     getSequence(objectWeights: WeightObject[], sequenceLength: number){
+        if(objectWeights.length === 0) {
+            return [];
+        }
+
         let weights = objectWeights.filter(x => x.objects.length > 0).map(x => x.weight);
         this.initialize(weights);
         const length = weights.length;

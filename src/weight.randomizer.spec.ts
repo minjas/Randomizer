@@ -13,6 +13,15 @@ class MediaItem {
 }
 
 describe("weight randomization", () => {
+  it("result sequence is empty array if input is empty array", () => {
+    let randomizer =  new WeightRandomizer();
+    const sequenceLength = 100;
+
+    const sequence = randomizer.getSequence([], sequenceLength);
+    expect(sequence.length).toEqual(0);
+    expect(sequence).toEqual([]);
+  });
+
   it("result sequence count must be equal to input sequence count", () => {
     let randomizer =  new WeightRandomizer();
     
